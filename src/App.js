@@ -46,11 +46,12 @@ const App = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://api.allorigins.win/get?url=https://www.markdownguide.org/api/v1/basic-syntax.json"
+          "https://www.markdownguide.org/api/v1/basic-syntax.json"
         );
         if (!response.ok) throw new Error(`Error: ${response.status}`);
         const data = await response.json();
         const parsedData = JSON.parse(data.contents);
+        console.log(parsedData);
         setDocsData(parsedData.basic_syntax);
       } catch (error) {
         console.log(error);
@@ -59,8 +60,6 @@ const App = () => {
 
     fetchData();
   }, []);
-
-  // const docsElement = ;
 
   return (
     <>
